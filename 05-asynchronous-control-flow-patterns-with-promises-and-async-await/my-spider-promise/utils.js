@@ -1,4 +1,4 @@
-import path from 'path'
+import { join, extname } from 'path'
 import { URL } from 'url'
 import slug from 'slug'
 import cheerio from 'cheerio'
@@ -11,7 +11,7 @@ function getLinkUrl (currentUrl, element) {
     return null
   }
   return parsedLink.toString()
-};
+}
 
 export function urlToFilename (url) {
   const parsedUrl = new URL(url)
@@ -23,8 +23,8 @@ export function urlToFilename (url) {
       return slug(component, { remove: null })
     })
     .join('/')
-  let filename = path.join(parsedUrl.hostname, urlPath)
-  if (!path.extname(filename).match(/htm/)) {
+  let filename = join(parsedUrl.hostname, urlPath)
+  if (!extname(filename).match(/htm/)) {
     filename += '.html'
   }
 
@@ -37,4 +37,4 @@ export function getPageLinks (currentUrl, body) {
       return getLinkUrl(currentUrl, element)
     })
     .filter(Boolean)
-};
+}

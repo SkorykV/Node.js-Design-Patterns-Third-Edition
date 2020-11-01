@@ -1,11 +1,12 @@
 import { spider } from './spider.js'
+import { TaskQueue } from './task-queue.js';
 
-spider(process.argv[2], (err, filename, downloaded) => {
-  if (err) {
-    console.error(err)
-  } else if (downloaded) {
-    console.log(`Completed the download of "${filename}"`)
-  } else {
-    console.log(`"${filename}" was already downloaded`)
-  }
+const taskQueue = new TaskQueue(+process.argv[4] || 2);
+
+taskQueue.on('error', console.error);
+taskQueue.on('empty', () => {
+  console.log('Download finished');
 })
+
+spider(process.argv[2], +process.argv[3], taskQueue)
+

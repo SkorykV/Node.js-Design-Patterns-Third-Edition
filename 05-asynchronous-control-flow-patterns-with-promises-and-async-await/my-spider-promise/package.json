@@ -1,5 +1,5 @@
 {
-  "name": "01-web-spider",
+  "name": "web-spider",
   "version": "1.0.0",
   "engines": {
     "node": ">=14"
