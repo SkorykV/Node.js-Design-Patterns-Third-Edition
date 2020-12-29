@@ -1,0 +1,24 @@
+{
+  "name": "practice-chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "start:dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "finalhandler": "^1.1.2",
+    "serve-static": "^1.14.1",
+    "ws": "^7.4.1",
+    "yargs": "^16.2.0",
+    "zeromq": "^6.0.0-beta.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
